@@ -1,0 +1,115 @@
+/*Resolver problema de el boton en la nariz del gato en diseno responsive*/
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    position: relative;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+    padding: 0 5vw; 
+    height: 100%;
+    width: 100%;
+}
+
+.cat-container {
+    grid-column: 1 / 7;
+    display: flex;
+    align-items: flex-end;
+}
+
+.cat-image {
+    width: 100%;
+    height: auto;
+}
+
+.nose-button {
+    position: absolute;
+    top: 48%; 
+    left: 41%; 
+    width: 7vmin; 
+    height: 7vmin; 
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.title-container {
+    grid-column: 7 / 13;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+}
+
+.title {
+    font-size: 4vmin;
+    font-weight: normal;
+}
+
+.title .bold {
+    font-weight: bold;
+    font-size: 7vmin;
+}
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(6, 1fr); 
+        padding: 0 2vw;
+    }
+    
+    .cat-container {
+        grid-column: 1 / 7;
+    }
+
+    .title-container {
+        grid-column: 1 / 7;
+    }
+
+    .nose-button {
+        top: 48%; 
+        left: 42%; 
+        background-color: red;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        grid-template-columns: repeat(4, 1fr);
+        padding: 0 1vw;
+    }
+    
+    .cat-container {
+        grid-column: 1 / 5;
+    }
+
+    .title-container {
+        grid-column: 1 / 5;
+    }
+
+    .title {
+        font-size: 5vmin;
+    }
+
+    .title .bold {
+        font-size: 8vmin;
+    }
+
+    .nose-button {
+        top: 39%; 
+        left: 82%; 
+        width: 10vmin;
+        height: 10vmin;
+        background-color: red;
+    }
+}

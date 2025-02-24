@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milaneso Blog</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="./assets/css/styleDonate.css">
+    <!--FavIcon-->
+    <link rel="icon" type="image/png" href="./img/favIcon_paw.png">
+    <!-- Incluye Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Incluye Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--Fuentes fontawesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!--navbar-->
+    <nav class="navbar">
+        <div class="logo">Milaneso Blog</div>
+        <ul class="nav-links">
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./life.html">Life</a></li>
+            <li><a href="./donate.html">Donate</a></li>
+        </ul>
+    </nav>
+    <!--end navbar-->
+
+    <div class="container-fluid">
+        <header class="hero-section">
+            <h2>¡Gracias por visitarme!</h2>
+        </header>
+
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <img src="./assets/img/donate_cat1.png" class="img-fluid" alt="">
+                </div>
+                <div class="col-12 col-md-7 offset-md-1 col-lg-6 offset-lg-1">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>¿Quieres apoyarme?</strong></h5>
+                            <p class="card-text">No dudes en donar :D</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="nombre" placeholder="Tu nombre porfavor" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="correo" class="form-label">Correo</label>
+                                    <input type="email" class="form-control" id="correo" placeholder="name@example.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="mensaje" class="form-label">Mensaje</label>
+                                    <textarea class="form-control" id="mensaje" rows="3" placeholder="Escribe algo bonito :D" required></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="cantidad" class="form-label">Cantidad a donar (USD)</label>
+                                    <input type="number" class="form-control" id="cantidad" placeholder="Tu donación me ayudará a mantenerme sano y coleando" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary"><strong>Donar</strong></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- start footer -->
+        <footer class="footer">
+            <h3>¡Haz llegado al final!</h3>
+            <p>Esta página está dedicada a practicar mis habilidades para desarrollo web y mostrar fotos de gatos.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <a href="#top" class="back-to-top">Regresar arriba</a>
+        </footer>
+        <!-- end footer -->
+    </div>
+</body>
+</html>
