@@ -1,2 +1,7 @@
-Tengo un frame de resolución 1440*900 pixeles. Dividido en 12 columnas 
-con margin 80 y gutter 20.
+#Primer parcial Programación para internet
+#Creado por Victor Jimenez
+
+Este proyecto es una página web creada con html,css
+y utilizando elementos de Bootstrap.
+
+Tiene como tématica el blog personal de un gato.
