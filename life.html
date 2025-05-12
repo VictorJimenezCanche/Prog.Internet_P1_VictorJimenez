@@ -29,81 +29,28 @@
     <!--start content secction-->
     <div class="container-fluid">
         <header class="hero-section">
-            <h2>¡Mis aventuras!</h1>
-            <p class="mensaje-inicial">Aqui encontrarás mis viajes, aventuras e historias</p>
+            <h2>¡Mis aventuras!</h2>
+            <p class="mensaje-inicial">Aquí encontrarás mis viajes, aventuras e historias</p>
         </header>
-        
-        <!--start card content secction-->
-        <section class="main-content row">
-            <!-- Card 1 -->
-            <div class="col-md-4 mb-4" >
-                <div class="card">
-                    <img src="./assets/img/card1.jpg" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <p class="card-text">Em Akshually</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Card 2 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="./assets/img/card2.jpg" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <p class="card-text">Leyendo orgullo. prejuicio y pomllito</p>
-                    </div>
-                </div>
-            </div>
+        <!-- Loader de carga -->
+        <div id="loading" class="text-center my-5">
+            <div class="spinner-border text-primary" role="status"></div>
+            <p class="mt-2">Cargando aventuras...</p>
+        </div>
 
-            <!-- Card 3 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="./assets/img/card3.jpg" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <p class="card-text">La makina de chambeo esta cansada</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Card 4 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="./assets/img/card4.jpg" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <p class="card-text">Limpiando la cocina</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="./assets/img/card5.jpg" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <p class="card-text">Mi primera vez conociendo el mar. Hay muchos pescados:0</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="./assets/img/card6.jpg" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <p class="card-text">La vida es corta como no pasarla con aquellos que queremos</p>
-                    </div>
-                </div>
-            </div>
-
+        <!--start card content section-->
+        <section class="main-content row" id="cards-container">
+            <!-- Las tarjetas se cargarán aquí -->
         </section>
-        <!--end card content secction-->
+        <!--end card content section-->
 
     </div>
 
     <!-- start footer -->
-
     <footer class="footer">
-        <h3>¡Has llegado al final!</h2>
+        <h3>¡Has llegado al final!</h3>
         <p>Esta página está dedicada a practicar mis habilidades para desarrollo web. Y mostrar fotos de gatos</p>
         <div class="social-icons">
             <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -113,8 +60,49 @@
         <a href="#top" class="back-to-top">Regresar arriba</a>
         <a href="index.html" class="back-to-top">Regresar a la pagina Main</a>
     </footer>
-
     <!-- end footer -->
+
+    <script>
+    //Carga una cantidad de cards especifica y las crea de manera dinámica
+    const getCards = async () => {
+    const loader = document.getElementById('loading');
+    const container = document.getElementById('cards-container');
+    
+    try {
+        loader.style.display = 'block'; 
+
+        const response = await fetch('https://milaneso-api.onrender.com/api/cards');
+        let cards = await response.json();
+
+        cards.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        const recentCards = cards.slice(0, 6);
+
+        container.innerHTML = '';
+
+        recentCards.forEach(card => {
+            const cardElement = document.createElement('div');
+            cardElement.classList.add('col-md-4', 'mb-4');
+            cardElement.innerHTML = `
+                <div class="card h-100">
+                    <img src="${card.imageUrl}" class="card-img-top" alt="Imagen de la tarjeta">
+                    <div class="card-body">
+                        <p class="card-text">${card.description}</p>
+                    </div>
+                </div>
+            `;
+            container.appendChild(cardElement);
+        });
+
+    } catch (error) {
+        console.error('Error al obtener las tarjetas:', error);
+        loader.innerHTML = '<p class="text-danger">Hubo un problema al cargar las tarjetas.</p>';
+    } finally {
+        loader.style.display = 'none'; 
+    }
+};
+
+window.onload = getCards;
+</script>
 
 </body>
 </html>
